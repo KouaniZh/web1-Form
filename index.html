@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style type="text/css">
+    .red-border {
+        border: 1px solid red !important;  
+      }
+
+    </style>
+    <title>Cadastro</title>
+</head>
+<body>
+
+    <div>
+        <h1 id="titulo">Cadrastro</h1>
+        <p id="subtitulo">Complete suas informações</p>
+    </div>
+
+    <form onsubmit="alertaButao()">
+        
+        <fieldset class="grupo">
+
+            <span id="spanNome" hidden="hidden" style="color:red">O nome deve conter ao menos 10 caracteres</span>
+            <div>
+                <label for="nome">Nome</label>
+                <input  type="text" name="nome" id="nome" onblur="validaNome();verificaButao()" onkeyup="validaCaractere()" required>
+            </div>
+            <span id="spanDate" hidden="hidden" style="color: red">Insira sua data de Nascimento</span>
+            <div class="campo">
+                <label for="date">Nascimento</label>
+                <input onblur="validaDate();verificaButao()" id="date" type="date" required>
+                <span id="idade" hidden="hidden" style="color:blue"></span>
+            </div>
+            <span id="spanCpf" hidden="hidden" style="color:red">Preencha este campo</span>
+            <span id="spanCpfInvalido" hidden="hidden" style="color:red">Informe um CPF válido</span>
+            <div class="campo">
+            <label for="cpf">CPF</label>
+            <input id="cpf" name="cpf" type="text" placeholder="xxx.xxx.xxx-xx" data-inputmask="'mask' : '999.999.999-99'" onblur="onblurCpf();verificaButao()" class="form-control input-md" required="">
+        </div>
+           
+        </fieldset>
+
+        <fieldset class="grupo">
+
+            <span id="spanCep" hidden="hidden" style="color: red">O CEP deve conter ao menos 7 caracteres</span>
+            <div class="campo">
+                <label for="cep">CEP</label>
+                <input type="text" name="cep" id="cep" data-inputmask="'mask' : '99999-999'" onblur="validaCep();verificaButao()" required placeholder="xx.xxx-xx">
+            </div>
+            <span id="spanEndereco" hidden="hidden" style="color:red">Preencha este campo</span>
+            <div>
+                <label for="Endereco">Endereço</label>
+                <input type="text" name="endereco" id="endereco" onblur="validaEndereco();verificaButao()" required>
+            </div>
+        </fieldset>
+        <button class="butao" id="butao" type="submit">Concluido</button>
+    </form>
+    <!-- jquery import -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous"></script>
+    <!-- mascara -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
+   <script src="formulario.js"></script>
+</body>
+
+</html>
